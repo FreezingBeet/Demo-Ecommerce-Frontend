@@ -1,4 +1,6 @@
 import React from 'react'
+import './HomePage.css'
+import './header.css'
 
 function HomePage() {
   return (
