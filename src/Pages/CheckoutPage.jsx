@@ -3,7 +3,7 @@ import './CheckoutPage.css'
 import './checkout-header.css'
 import { Link } from 'react-router';
 
-function CheckoutPage() {
+function CheckoutPage({ cart }) {
   return (
     <>
         <title>Checkout</title>
