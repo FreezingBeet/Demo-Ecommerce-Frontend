@@ -1,11 +1,13 @@
 import React from 'react'
+import Header from '../components/Header'
 import './HomePage.css'
-import './header.css'
 
 function HomePage() {
   return (
     <>
         <title>Ecommerce Project</title>
+
+        <Header />
         
         <div className="header">
         <div className="left-section">
