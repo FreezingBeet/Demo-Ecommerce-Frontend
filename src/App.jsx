@@ -1,9 +1,9 @@
 import { Route, Routes } from 'react-router'
 import './App.css'
-import HomePage from './pages/HomePage'
-import CheckoutPage from './pages/CheckoutPage'
-import OrdersPage from './pages/OrdersPage'
-import TrackingPage from './pages/TrackingPage'
+import HomePage from './Pages/HomePage'
+import CheckoutPage from './Pages/CheckoutPage'
+import OrdersPage from './Pages/OrdersPage'
+import TrackingPage from './Pages/TrackingPage'
 
 function App() {
   return (
