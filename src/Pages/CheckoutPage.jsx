@@ -1,4 +1,6 @@
 import React from 'react'
+import './CheckoutPage.css'
+import './checkout-header.css'
 
 function CheckoutPage() {
   return (
