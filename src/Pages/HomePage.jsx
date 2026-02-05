@@ -2,12 +2,15 @@ import axios from 'axios'
 import { products } from '../../starting-code/data/products'
 import Header from '../components/Header'
 import './HomePage.css'
+import { useEffect } from 'react'
 
 function HomePage() {
-    axios.get('http://localhost:3000/api/products')
-    .then((response) => {
-        console.log(response.data)
-    })
+    useEffect(() => {
+        axios.get('http://localhost:3000/api/products')
+        .then((response) => {
+            console.log(response.data)
+        });
+    }, []);
 
   return (
     <>
