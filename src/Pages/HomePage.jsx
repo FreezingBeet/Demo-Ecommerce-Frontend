@@ -4,8 +4,9 @@ import './HomePage.css'
 import { formatMoney } from '../utils/money'
 import { useEffect, useState } from 'react'
 
-function HomePage({ cart }) {
+function HomePage({ cart, loadCart }) {
   const [products, setProducts] = useState([]);
+  const [quantity, setQuantity] = useState(1);
 
   useEffect(() => {
     axios.get('/api/products')
@@ -47,7 +48,10 @@ function HomePage({ cart }) {
                 </div>
 
                 <div className="product-quantity-container">
-                  <select>
+                  <select value={quantity} onChange={(e) => {
+                    const quantitySelected = Number(e.target.value)
+                    setQuantity(quantitySelected)
+                  }}>
                     <option value="1">1</option>
                     <option value="2">2</option>
                     <option value="3">3</option>
@@ -68,7 +72,14 @@ function HomePage({ cart }) {
                   Added
                 </div>
 
-                <button className="add-to-cart-button button-primary">
+                <button className="add-to-cart-button button-primary"
+                onClick={async () => {
+                  await axios.post('/api/cart-items', {
+                    productId: product.id,
+                    quantity: 1
+                  });
+                  loadCart();
+                }}>
                   Add to Cart
                 </button>
               </div>
