@@ -5,6 +5,13 @@ import { formatMoney } from "../../utils/money";
 
 function Product({ product, loadCart }) {
   const [quantity, setQuantity] = useState(1);
+  const addToCart = async () => {
+          await axios.post('/api/cart-items', {
+            productId: product.id,
+            quantity: quantity
+          });
+          loadCart();
+        }
 
   return (
     <div className="product-container">
@@ -55,13 +62,7 @@ function Product({ product, loadCart }) {
       </div>
 
       <button className="add-to-cart-button button-primary"
-        onClick={async () => {
-          await axios.post('/api/cart-items', {
-            productId: product.id,
-            quantity: quantity
-          });
-          loadCart();
-        }}>
+        onClick={addToCart}>
         Add to Cart
       </button>
     </div>
