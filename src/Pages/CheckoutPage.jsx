@@ -6,7 +6,7 @@ import './checkout-header.css'
 import { Link } from 'react-router';
 import { formatMoney } from '../utils/money'
 
-function CheckoutPage({ cart }) {
+function CheckoutPage({ cart, loadCart }) {
   const [deliveryOptions, setDeliveryOptions] = useState([]);
   const [paymentSummary, setPaymentSummary] = useState(null);
 
@@ -20,7 +20,14 @@ function CheckoutPage({ cart }) {
       .then((response) => {
         setPaymentSummary(response.data)
       });
-  }, []);
+  }, [cart]);
+
+  const updateDeliveryOption = async (cartItem, deliveryOption) => {
+    await axios.put(`/api/cart-items/${cartItem.productId}`, {
+      deliveryOptionId: deliveryOption.id
+    });
+    loadCart();
+  };
 
   return (
     <>
@@ -94,9 +101,11 @@ function CheckoutPage({ cart }) {
                       </div>
                       {deliveryOptions.map((deliveryOption) => {
                         return (
-                          <div key={deliveryOption.id} className="delivery-option">
+                          <div key={deliveryOption.id} className="delivery-option"
+                          onClick={() => updateDeliveryOption(cartItem, deliveryOption)}>
                             <input type="radio"
                               checked={deliveryOption.id === cartItem.deliveryOptionId}
+                              onChange={() => {}}
                               className="delivery-option-input"
                               name={`delivery-option-${cartItem.productId}`} />
                             <div>
