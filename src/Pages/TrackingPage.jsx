@@ -5,47 +5,47 @@ import './TrackingPage.css'
 function TrackingPage() {
   return (
     <>
-        <title>Tracking</title>
+      <title>Tracking</title>
 
-        <Header />
+      <Header />
 
-        <div className="tracking-page">
+      <div className="tracking-page">
         <div className="order-tracking">
-            <a className="back-to-orders-link link-primary" href="/orders">
+          <a className="back-to-orders-link link-primary" href="/orders">
             View all orders
-            </a>
+          </a>
 
-            <div className="delivery-date">
+          <div className="delivery-date">
             Arriving on Monday, June 13
-            </div>
+          </div>
 
-            <div className="product-info">
+          <div className="product-info">
             Black and Gray Athletic Cotton Socks - 6 Pairs
-            </div>
+          </div>
 
-            <div className="product-info">
+          <div className="product-info">
             Quantity: 1
-            </div>
+          </div>
 
-            <img className="product-image" src="images/products/athletic-cotton-socks-6-pairs.jpg" />
+          <img className="product-image" src="images/products/athletic-cotton-socks-6-pairs.jpg" />
 
-            <div className="progress-labels-container">
+          <div className="progress-labels-container">
             <div className="progress-label">
-                Preparing
+              Preparing
             </div>
             <div className="progress-label current-status">
-                Shipped
+              Shipped
             </div>
             <div className="progress-label">
-                Delivered
+              Delivered
             </div>
-            </div>
+          </div>
 
-            <div className="progress-bar-container">
+          <div className="progress-bar-container">
             <div className="progress-bar"></div>
-            </div>
+          </div>
         </div>
-        </div>
+      </div>
     </>
   )
 }
